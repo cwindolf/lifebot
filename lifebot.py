@@ -7,7 +7,7 @@ from pprint import pprint
 from env import CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN, ACCESS_SECRET
 
 # grid dims for Twitter
-WIDTH = 11
+WIDTH = 10 # +1 cuz there's a space
 HEIGHT = 12
 # nicer looping
 OFFSETS = [(-1, -1), (0, -1), (1, -1),
@@ -70,7 +70,7 @@ def string_of_grid(grid):
 	"""
 	ret = ""
 	for row in grid:
-		ret += "".join(string_of_cell(cell) for cell in row) + " "
+		ret += "".join(string_of_cell(cell) for cell in row) + "\n"
 	return ret
 
 
@@ -105,8 +105,6 @@ if __name__ == "__main__":
 	sys.stdout.write("Tweeting...")
 	# sys.stdout.write(tweet)
 	stat = api.update_status(tweet)
-	sys.stdout.write("Tweeted with status:")
-	pprint(stat)
 
 	# save state to disk **************************************************** #
 	with open("state.pickle", "wb") as f:
@@ -114,4 +112,3 @@ if __name__ == "__main__":
 		pprint(state)
 		pickle.dump(state, f)
 		sys.stdout.write("Success. Til next time!")
-

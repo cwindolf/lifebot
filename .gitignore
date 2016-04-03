@@ -3,3 +3,5 @@ state.pickle
 life.log
 pycache/*
 pycache
+*.plist
+*.sh

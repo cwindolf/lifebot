@@ -1,3 +1,5 @@
 env.py
 state.pickle
 life.log
+pycache/*
+pycache
